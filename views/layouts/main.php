@@ -24,7 +24,7 @@
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand waves-effect">My Shop</a>
+            <a href="/" class="navbar-brand waves-effect">My Shop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarContent" aria-controls="navbarContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -32,15 +32,42 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a href="index.html" class="nav-link waves-effect">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="tovar.html" class="nav-link waves-effect">Catalog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="admin.html" class="nav-link waves-effect">About us</a>
-                    </li>
+                    <?php
+                    $menuHome[] = ['label' => 'Home', 'url' => ['/']];
+                    echo \yii\bootstrap\Nav::widget(array(
+                        'options' => array('class' => 'active navbar-nav mr-auto nav-link waves-effect'),
+                        'items' => $menuHome,
+                    ));
+
+                    $menutov[] = ['label' => 'Catalog', 'url' => ['/tovar']];
+                    echo \yii\bootstrap\Nav::widget(array(
+                        'options' => array('class' => 'navbar-nav mr-auto nav-link waves-effect'),
+                        'items' => $menutov,
+                    ));
+                    ?>
+                    <?php
+
+                    if (Yii::$app->user->isGuest){
+                        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                        //$menuItems[] = ['label' => 'Sign up', 'url' => ['/site/signup']];
+                    } else {
+                        $menuItems[] = '<li>'
+                            . \yii\bootstrap\Html::beginForm(['/site/logout'], 'post')
+                            . \yii\bootstrap\Html::submitButton(
+                                'Logout (' . Yii::$app->user->identity->getAuthKey() . ')',
+                                ['class' => 'btn btn-link logout right']
+                            )
+                            . \yii\bootstrap\Html::endForm()
+                            . '</li>';
+
+                    }
+
+                    echo \yii\bootstrap\Nav::widget(array(
+                        'options' => array('class' => 'navbar-nav mr-auto nav-link waves-effect'),
+                        'items' => $menuItems,
+                    ));
+                    ?>
+
                 </ul>
                 <ul class="navbar-nav nav-flex-icons">
                     <li class="nav-item mr-2">
@@ -64,7 +91,9 @@
     </nav>
 </header>
 
-<?= $content ?>
+<main>
+    <?= $content ?>
+</main>
 
 <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
     <div class="pt-4">

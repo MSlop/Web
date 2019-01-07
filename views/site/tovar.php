@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: user
+ * Date: 1/6/19
+ * Time: 9:17 PM
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +22,7 @@
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="grey lighten-3">
+<body>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
         <div class="container-fluid">
@@ -31,6 +39,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="tovar.html" class="nav-link waves-effect">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link waves-effect">About us</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav nav-flex-icons">
@@ -54,9 +65,16 @@
         </div>
     </nav>
 </header>
-<main1 class="pt-5 max-lg-5">
-    <div id="imgContainer1" class="img-fluid"></div>
-    <div id="imgContainer2" class="img-fluid"></div>
+
+<main1>
+    <div class="product-item pt-5 max-lg-5">
+        <img src="../vas9.jpeg">
+        <div class="product-list">
+            <h3>Автомобиль 1</h3>
+            <span class="price">₽ 1999</span>
+            <a href="" class="button">Приобрести</a>
+        </div>
+    </div>
 </main1>
 
 <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
@@ -90,6 +108,7 @@
     <div class="footer-copyright py-3">My Shop</div>
 </footer>
 
+
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
@@ -100,8 +119,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 <script>
-    new WOW().init();
+new WOW().init();
 </script>
-
 </body>
 </html>

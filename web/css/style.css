@@ -38,7 +38,7 @@
 }
 
 #imgContainer1{
-    background: url(../../img/bently.jpg) no-repeat center top;
+    background: url(/web/img/bently.jpg) no-repeat center top;
     margin-top: -10px;
     padding-top: 20px;
     text-align: center;
@@ -54,7 +54,7 @@
 }
 
 #imgContainer2{
-    background: url(../../img/bentli_winter.jpeg) no-repeat center top;
+    background: url(/web/img/bentli_winter.jpeg) no-repeat center top;
     margin-top: -10px;
     padding-top: 20px;
     text-align: center;
@@ -113,3 +113,6 @@
 }
 .product-item:hover .button {background: darkblue;}
 
+main {
+    margin-top: 80px;
+}
