@@ -1,7 +1,6 @@
 <?php
 
 /* @var $content string */
-
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +38,11 @@
                         'items' => $menuHome,
                     ));
 
-                    $menutov[] = ['label' => 'Catalog', 'url' => ['/tovar']];
+                    $menutov[] = ['label' => 'Catalog', 'url' => ['/site/tovar']];
                     echo \yii\bootstrap\Nav::widget(array(
                         'options' => array('class' => 'navbar-nav mr-auto nav-link waves-effect'),
                         'items' => $menutov,
                     ));
-                    ?>
-                    <?php
 
                     if (Yii::$app->user->isGuest){
                         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];

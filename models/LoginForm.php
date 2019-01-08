@@ -49,6 +49,13 @@ class LoginForm extends Model
 
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect username or password.');
+                http_response_code(204);
+
+            }
+            else
+            {
+                http_response_code(200);
+                echo json_encode($user);
             }
         }
     }

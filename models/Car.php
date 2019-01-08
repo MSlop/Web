@@ -14,7 +14,7 @@ use Yii;
  * @property string $createdAt Дата создания
  * @property string $updatedAt Дата изменения
  *
- * @property Categories $category
+ * @property Category $category
  */
 class Car extends \yii\db\ActiveRecord
 {
@@ -37,7 +37,7 @@ class Car extends \yii\db\ActiveRecord
             [['createdAt', 'updatedAt'], 'safe'],
             [['name'], 'string', 'max' => 45],
             [['id'], 'unique'],
-            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['categoryId' => 'id']],
+            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['categoryId' => 'id']],
         ];
     }
 
@@ -61,6 +61,6 @@ class Car extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Categories::className(), ['id' => 'categoryId']);
+        return $this->hasOne(Category::className(), ['id' => 'categoryId']);
     }
 }

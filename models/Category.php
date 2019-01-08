@@ -12,7 +12,7 @@ use Yii;
  * @property string $createdAt Дата создания
  * @property string $updatedAt Дата изменения
  *
- * @property Cars[] $cars
+ * @property Car[] $cars
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -54,6 +54,6 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getCars()
     {
-        return $this->hasMany(Cars::className(), ['categoryId' => 'id']);
+        return $this->hasMany(Car::className(), ['categoryId' => 'id']);
     }
 }
